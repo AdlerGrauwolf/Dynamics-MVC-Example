@@ -1,0 +1,50 @@
+﻿@model MVCTest.WebSiteUI.Models.ErrorModel
+
+@{
+    if (Model.Mensaje != null)
+    {
+        string strTipoMensaje = "alert-info";
+        string imagen = "";
+        switch (Model.TipoMensaje)
+        {
+            case MVCTest.WebSiteUI.Models.ErrorModel.TipoMensajeEnum.Informacion:
+                strTipoMensaje = "alert-info";
+                imagen += "info";
+                break;
+
+            case MVCTest.WebSiteUI.Models.ErrorModel.TipoMensajeEnum.Exito:
+                strTipoMensaje = "alert-success";
+                imagen += "success";
+                break;
+
+            case MVCTest.WebSiteUI.Models.ErrorModel.TipoMensajeEnum.Advertencia:
+                strTipoMensaje = "alert-warning";
+                imagen += "warning";
+                break;
+
+            case MVCTest.WebSiteUI.Models.ErrorModel.TipoMensajeEnum.Error:
+                strTipoMensaje = "alert-danger";
+                imagen += "danger";
+                break;
+        }
+        <div class="alert @strTipoMensaje fade in rs-padding crm-font" style="height:28px; font-size:11px;">
+            @*<div class="icon-rs-@imagen"></div>*@
+            @Model.Mensaje
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden='true'>&times;</span>
+            </button>
+        </div>
+
+        if (Model.UrlView != null)
+        {
+            <div class="row crm-controls" style="text-align:left" id="ErrorControls">
+                <span tabindex="0" class="ms-crm-Error-Button" style="height:30px" id="btnBack">
+                    <button tabindex="-1" type="button" value="" class="crm-Button" onclick="location='@Model.UrlView'" id="btnBack">
+                        <img src="~/Content/Images/Back_24.png" /><span style="padding-top:3px" class="ms-crm-MenuItem-TextRTL">&nbsp;Back</span>
+                    </button>
+                </span>
+            </div>
+        }
+
+    }
+}

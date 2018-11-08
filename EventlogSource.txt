@@ -1,0 +1,1 @@
+new-eventlog -logname MVCTest -source MVCTest

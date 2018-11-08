@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text">MVCTest Web site</p>
+                <div type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Principal", "Index", "Contact")</li>
+                    <li>@Html.ActionLink("Contactos", "ViewContacs", "Contact")</li>
+                    <li>@Html.ActionLink("Cuentas", "ViewAccounts", "Account")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="loading">
+        <div id="loadingcontent">
+            <p id="loadingspinner">
+                <img src="~/Content/images/loading_50px.gif" />
+            </p>
+        </div>
+    </div>
+    <div>
+        @RenderSection("Toolbar", false)
+    </div>
+    <div id="displayErrorContainer"></div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="footer" align="center">
+        <div>
+            @DateTime.Now.Year - MVCTest Rhino Sistems &copy;
+        </div>
+    </footer>
+</body>
+</html>

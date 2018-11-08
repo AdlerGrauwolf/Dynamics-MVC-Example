@@ -1,0 +1,98 @@
+﻿@model MVCTest.WebSiteUI.ViewModel.AccountCUViewModel
+@Scripts.Render("~/bundles/jqueryval")
+
+
+<div class="hidden">
+    @Html.HiddenFor(model => model.Accion, new { id = "formAction" })
+    @Html.HiddenFor(model => model.Id, new { id = "accountId" })
+</div>
+
+<table class="table-condensed">
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.AccountName, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.AccountName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AccountName, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.NumeroCuenta, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.NumeroCuenta, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.CorreoElectronico, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.Telefono, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.Fax, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.SitioWeb, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.SitioWeb, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.CuentaPrimaria, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            <div class="input-group">
+                @Html.EditorFor(model => model.CuentaPrimaria.Name, new { htmlAttributes = new { @class = "form-control", disabled = true, id = "selectedAccountName" } })
+                @Html.HiddenFor(model => model.CuentaPrimaria.Id, new { id = "selectedAccountId" })
+                <div class="input-group-btn">
+                    <div class="btn btn-danger" id="btnClearAccount" type="button" onclick="btnClearAccount()">
+                        <i class="glyphicon glyphicon glyphicon-remove-circle"></i>
+                    </div>
+                    <div class="btn btn-primary" id="btnShowAccounts" type="button" onclick="btnShowAccounts()">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.ContactoPrincipal, new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            <div class="input-group">
+                @Html.EditorFor(model => model.ContactoPrincipal.Name, new { htmlAttributes = new { @class = "form-control", disabled = true, id = "selectedContactName" } })
+                @Html.HiddenFor(model => model.ContactoPrincipal.Id, new { id = "selectedContactId" })
+                <div class="input-group-btn">
+                    <div class="btn btn-danger" id="btnClearContact" type="button" onclick="btnClearContact()">
+                        <i class="glyphicon glyphicon glyphicon-remove-circle"></i>
+                    </div>
+                    <div class="btn btn-primary" id="btnShowContacts" type="button" onclick="btnShowContacts()">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

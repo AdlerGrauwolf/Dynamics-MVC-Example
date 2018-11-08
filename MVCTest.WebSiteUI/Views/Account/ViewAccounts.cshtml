@@ -1,0 +1,137 @@
+﻿@model MVCTest.WebSiteUI.ViewModel.AccountsViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutMVCTest.cshtml";
+}
+
+@section Toolbar {
+    <div class="toolBar">
+        <div class="toolBarLeft inLineBlock">
+            <img src="~/Content/images/Dymamics-horizontal.jpg" class="toolBarImage" />
+        </div>
+        <div class="toolBarRight inLineBlock">
+            <div class="input-group">
+                @Html.TextBox("searchAccount", "", new { @class = "font-standard form-control", autofocus = "", id = "searchAccount", placeholder = "Nombre de la cuenta" })
+                <div class="input-group-btn">
+                    <div class="btn btn-primary" type="button" id="btnSearchAccount">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                    <div class="btn btn-info" id="btnNewAccount">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </div>
+                    <div class="btn btn-default" id="btnRefresh">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="listaCuentas">
+    @Html.Partial("_accountList", Model.Accounts)
+</div>
+
+<!-- Modal formulario cuentas -->
+<div id="accountModal" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div type="button" class="close" data-dismiss="modal">
+                    <i class="btn btn-sm glyphicon glyphicon-remove"></i>
+                </div>
+                <h3 id="accountModelHeader"></h3>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("createAccount", "Account", FormMethod.Post, new { id = "formAccount" }))
+                {
+                    <div id="modalContainer">
+
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Cancelar" id="btnCancelar" class="btn btn-danger" />
+                <input type="button" value="Aceptar" id="btnAceptar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para buscar cuentas -->
+<div id="subModalAccount" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="subModalAccountHeader">
+                    <div type="button" class="close" data-toggle="modal" data-target="#accountModal" data-dismiss="modal">
+                        <i class="btn btn-sm glyphicon glyphicon-remove"></i>
+                    </div>
+                    <div class="input-group" style="width: 320px">
+                        @Html.TextBox("accountName", "", new { @class = "font-standard form-control", autofocus = "", id = "accountName", placeholder = "Nombre de la cuenta" })
+                        <div class="input-group-btn">
+                            <div class="btn btn-primary" type="button" id="btnSubModalAccountSearch" onclick="searchAccounts();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="subModalAccountContainer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Aceptar" id="btnSelectAccounts" class="btn btn-primary" onclick="SelectAccount()" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para buscar contactos -->
+<div id="subModalContact" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="subModalContactHeader">
+                    <div type="button" class="close" data-toggle="modal" data-target="#accountModal" data-dismiss="modal">
+                        <i class="btn btn-sm glyphicon glyphicon-remove"></i>
+                    </div>
+                    <div class="input-group" style="width: 320px">
+                        @Html.TextBox("contactName", "", new { @class = "font-standard form-control", autofocus = "", id = "contactName", placeholder = "Nombre del contacto" })
+                        <div class="input-group-btn">
+                            <div class="btn btn-primary" type="button" id="btnSubModalContactSearch" onclick="searchContacts();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="subModalContactContainer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Aceptar" id="btnSelectContacts" class="btn btn-primary" onclick="SelectContact()" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/common")
+@Scripts.Render("~/bundles/account")
+
+<script type="text/javascript">
+    var _actionURLSearchAccount = '@Url.Action("SearchAccount", "Account")';
+    var _actionURLNewAccountForm = '@Url.Action("NewAccountForm", "Account")';
+    var _actionURLUpdateAccountForm = '@Url.Action("EditAccountForm", "Account")';
+    var _actionURLCreateAccount = '@Url.Action("CreateAccount", "Account")';
+    var _actionURLUpdateAccount = '@Url.Action("UpdateAccount", "Account")';
+    var _actionURLDeleteAccount = '@Url.Action("DeleteAccount", "Account")';
+
+    var _actionURLSearchContacts = '@Url.Action("SearchContacts", "Contact")';
+</script>

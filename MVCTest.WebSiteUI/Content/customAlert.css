@@ -1,0 +1,50 @@
+﻿.customAlertPrimary, .customAlertSuccess, .customAlertInfo, .customAlertWarning, .customAlertDanger {
+    font-weight: bold;
+}
+
+    .customAlertDefault .modal-header,
+    .customAlertPrimary .modal-header,
+    .customAlertSuccess .modal-header,
+    .customAlertInfo .modal-header,
+    .customAlertWarning .modal-header,
+    .customAlertDanger .modal-header {
+        color: #FFF;
+        text-align: center;
+        height: 45px;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+.customAlertDefault .modal-header {
+    background-color: #FFF;
+    color: #000 !important;
+}
+
+.customAlertPrimary .modal-header {
+    background-color: #01549b;
+}
+
+.customAlertSuccess .modal-header {
+    background-color: #449d44;
+}
+
+.customAlertInfo .modal-header {
+    background-color: #31b0d5;
+}
+
+.customAlertWarning .modal-header {
+    background-color: #ec971f;
+}
+
+.customAlertDanger .modal-header {
+    background-color: #c12e2a;
+}
+
+.customAlertDefault .modal-footer,
+.customAlertPrimary .modal-footer,
+.customAlertSuccess .modal-footer,
+.customAlertInfo .modal-footer,
+.customAlertWarning .modal-footer,
+.customAlertDanger .modal-footer {
+    padding: 12px;
+}

@@ -1,0 +1,118 @@
+﻿@model MVCTest.WebSiteUI.ViewModel.ContactCUViewModel
+@Scripts.Render("~/bundles/jqueryval")
+
+<div class="hidden">
+    @Html.HiddenFor(model => model.Accion, new { id = "formAction" })
+    @Html.HiddenFor(model => model.Id, new { id = "contactId" })
+</div>
+<table class="table-condensed">
+    <tr>
+        <td nowrap>
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-lg-10 text-primary" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Puesto, htmlAttributes: new { @class = "control-label col-lg-10" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Puesto, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.CorreoElectronico, htmlAttributes: new { @class = "control-label col-lg-10" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.TelefonoTrabajo, htmlAttributes: new { @class = "control-label col-lg-10" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.TelefonoTrabajo, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.TelefonoMovil, htmlAttributes: new { @class = "control-label col-lg-10" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.TelefonoMovil, new { htmlAttributes = new { @class = "form-control" } })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.CuentaPrincipal, htmlAttributes: new { @class = "control-label col-lg-10" })
+        </td>
+        <td>
+            <div class="input-group">
+                @Html.EditorFor(model => model.CuentaPrincipal.Name, new { htmlAttributes = new { @class = "form-control", disabled = true, id = "selectedAccountName" } })
+                @Html.HiddenFor(model => model.CuentaPrincipal.Id, new { id = "selectedAccountId" })
+                <div class="input-group-btn">
+                    <div class="btn btn-danger" id="btnClearAccount" type="button" onclick="btnClearAccount()">
+                        <i class="glyphicon glyphicon glyphicon-remove-circle"></i>
+                    </div>
+                    <div class="btn btn-primary" id="btnShowAccounts" type="button" onclick="btnShowAccounts()">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    @if (Model.contactMethodSelector != null && Model.contactMethodSelector.Any())
+    {
+        <tr>
+            <td nowrap>
+                @Html.LabelFor(model => model.MetodoContacto, htmlAttributes: new { @class = "control-label col-lg-10" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.MetodoContacto,
+                    new SelectList(Model.contactMethodSelector, "Value", "Label", Model.contactMethodSelector[0]), new { @class = "form-control", id = "contactMethod" })
+
+                @Html.ValidationMessageFor(model => model.contactMethodSelector, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+<hr />
+<div>
+    @Html.Label("Cuentas asociadas", new { @class = "h5 bold" })
+    @if (Model.CuentasAsociadas != null && Model.CuentasAsociadas.Any())
+    {
+        <div class="formGridContainer">
+            <table class="table table-striped">
+                @foreach (var cuenta in Model.CuentasAsociadas)
+                {
+                    <tr>
+                        <td>
+                            @cuenta.AccountName
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            @Html.Label("Sin cuentas asociadas", new { @class = "h6 bold"})
+        </div>
+    }
+</div>

@@ -1,0 +1,170 @@
+﻿body {
+    /* Margin bottom by footer height */
+    margin-bottom: 40px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+    background-color: rgb(11, 100, 165);
+    color: #FFF;
+}
+
+    .footer div {
+        padding: 10px 0 0 10px;
+    }
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.inLineBlock {
+    display: inline-block;
+}
+
+.toolBar {
+    margin-top: 50px;
+    background-color: rgb(11, 100, 165);
+    line-height: 50px;
+    padding: 5px;
+    color: #FFF;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+
+.toolBarLeft {
+    width: 49%;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.toolBarRight {
+    width: 49%;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.toolBarImage {
+    border: 1px solid #000;
+    background: #FFF;
+    height: 45px;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.alertPadding {
+    padding: 0 35px 0 10px !important;
+}
+
+.indexMainContainer {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.crmImage {
+    width: 500px;
+}
+
+.contactContainer {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    padding: 25px;
+}
+
+.containerHeader {
+    background: #46b8da;
+    color: #feffff;
+    padding: 0;
+    margin: 0;
+}
+
+.gridContainer {
+    text-align: left;
+    height: 350px;
+    overflow: auto;
+    padding: 0px 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(11, 100, 165);
+    border-image: initial;
+    border-radius: 3px;
+}
+
+.formGridContainer {
+    height: 200px;
+    overflow: auto;
+    padding: 0 15px 0 15px;
+    border: 1px solid rgb(11, 100, 165);
+    border-radius: 3px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#loading {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10000;
+}
+
+#loadingcontent {
+    display: table;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#loadingspinner {
+    display: table-cell;
+    vertical-align: super;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    padding-top: 80px;
+}
+
+#subModalAccountContainer, #subModalContactContainer {
+    height: 370px;
+}
+
+.input-validation-error {
+    border: 2px solid red;
+}
+
+.pointer {
+    cursor: pointer;
+}

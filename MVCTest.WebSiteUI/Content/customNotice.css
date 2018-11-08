@@ -1,0 +1,92 @@
+﻿.customNotice {
+    position: absolute;
+    width: 95%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-bottom: 10px;
+    z-index: 10001;
+    -webkit-box-shadow: 0 5px 8px -3px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 5px 8px -3px rgba(0,0,0,.2);
+    box-shadow: 0 5px 8px -3px rgba(0,0,0,.2);
+}
+
+.notice-sm {
+    padding: 10px;
+    font-size: 80%;
+}
+
+.notice-lg {
+    padding: 35px;
+    font-size: large;
+}
+
+.notice-success {
+    border-color: #80D651;
+}
+
+    .notice-success > strong {
+        color: #80D651;
+    }
+
+.notice-info {
+    border-color: #45ABCD;
+}
+
+    .notice-info > strong {
+        color: #45ABCD;
+    }
+
+.notice-warning {
+    border-color: #FEAF20;
+}
+
+    .notice-warning > strong {
+        color: #FEAF20;
+    }
+
+.notice-danger {
+    border-color: #d73814;
+}
+
+    .notice-danger > strong {
+        color: #d73814;
+    }
+
+.notice-default {
+    border-color: #7f7f84;
+}
+
+    .notice-default > strong {
+        color: #7f7f84;
+    }
+
+.notice-primary {
+    border-color: #01549b;
+}
+
+    .notice-primary > strong {
+        color: #01549b;
+    }
+
+
+.notice-hiden {
+    display: none;
+}
+
+.notice-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+}
